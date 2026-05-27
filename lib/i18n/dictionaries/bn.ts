@@ -1,0 +1,31 @@
+﻿import type { PartialDictionary } from "../types";
+
+const dictionary = {
+    common: {
+        header: {
+            aboutUs: `আমাদের সম্পর্কে`,
+            academy: `একাডেমি`,
+            announcement: `ঘোষণা`,
+            blog: `ব্লগ`,
+            certification: `সনদপত্র`,
+            challenge: `চ্যালেঞ্জ`,
+            contactUs: `আমাদের সাথে যোগাযোগ করুন`,
+            faq: `সর্বাধিক জিজ্ঞাসিত প্রশ্নাবলী`,
+            instant: `তাৎক্ষণিক`,
+            instantEvaluation: `তাৎক্ষণিক মূল্যায়ন`,
+            introducingPartners: `ইন্ট্রোডিউসিং পার্টনার`,
+            login: `লগইন`,
+            paymentMethods: `অর্থপ্রদানের পদ্ধতি`,
+            payout: `প্রদেয় অর্থ`,
+            promotions: `প্রচার`,
+            rewardsProfitSharing: `পুরস্কার ও মুনাফা বণ্টন`,
+            scaleUpPlan: `সম্প্রসারণ পরিকল্পনা`,
+            seminar: `সেমিনার`,
+            simulatedSymbols: `প্রতীক`,
+            testimonials: `প্রশংসাপত্র`,
+            tradingPlatforms: `ট্রেডিং প্ল্যাটফর্ম`,
+        },
+    },
+} satisfies PartialDictionary;
+
+export default dictionary;
