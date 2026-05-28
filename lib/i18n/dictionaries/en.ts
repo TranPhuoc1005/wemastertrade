@@ -67,6 +67,28 @@ const en: Dictionary = {
             notApplicable: "N/A",
         },
     },
+    instant: {
+        funding: {
+            accountSize: "Account Size",
+            buyingPower: "Buying Power",
+            capitalPackage: "Capital Package",
+            comparison: "Comparison",
+            dailyLoss: "Daily Loss",
+            faq: "FAQs",
+            freeSwap: "Free-Swap",
+            freeTrial: "Free Trial",
+            maxLoss: "Max Loss",
+            oneTimeFee: "One-Time Fee",
+            package: "Package",
+            profitTargetToWithdraw: "Profit Target To Withdraw",
+            scaleUp: "Scale Up Plan",
+            swapFee: "Swap Fee",
+            titlePrefix: "Choose Your Trading",
+            titleSuffix: "Capital Package",
+            tryNow: "Try Now",
+            weFundYou: "we fund you",
+        },
+    },
 };
 
 export default en;

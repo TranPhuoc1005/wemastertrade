@@ -1946,6 +1946,16 @@
         display: grid !important;
         grid-template-columns: repeat(2, 1fr);
     }
+    
+    .header-region .region-sp-frame img {
+        flex-shrink: 0;
+        width: 18px;
+        height: 18px;
+    }
+
+    .header-region .region-sp-frame li a {
+        align-items: center;
+    }
 
     .header-region .region-sp-frame a {
         display: flex;

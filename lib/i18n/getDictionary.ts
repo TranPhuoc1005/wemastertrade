@@ -1,5 +1,6 @@
 import { defaultLocale, type Locale } from "./config";
 import en from "./dictionaries/en";
+import { instantFundingTranslations } from "./instantFundingTranslations";
 import { packageTranslations } from "./packageTranslations";
 import type { Dictionary, PartialDictionary } from "./types";
 
@@ -64,6 +65,16 @@ export async function getDictionary(locale: Locale): Promise<Dictionary> {
                 ...en.home.package,
                 ...packageTranslations[dictionaryLocale],
                 ...partial.home?.package,
+            },
+        },
+        instant: {
+            ...en.instant,
+            ...partial.instant,
+            funding: {
+                ...en.instant.funding,
+                ...instantFundingTranslations[dictionaryLocale],
+                ...instantFundingTranslations[locale],
+                ...partial.instant?.funding,
             },
         },
     };

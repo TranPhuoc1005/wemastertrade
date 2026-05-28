@@ -1,5 +1,5 @@
-import Image from 'next/image';
 import React from 'react';
+import Image from 'next/image';
 import type { Locale } from "../../../lib/i18n/config";
 import { localizedPath } from "../../../lib/i18n/routing";
 import type { Dictionary } from "../../../lib/i18n/types";

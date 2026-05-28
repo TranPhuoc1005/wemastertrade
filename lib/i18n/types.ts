@@ -64,6 +64,28 @@ export interface Dictionary {
             notApplicable: string;
         };
     };
+    instant: {
+        funding: {
+            accountSize: string;
+            buyingPower: string;
+            capitalPackage: string;
+            comparison: string;
+            dailyLoss: string;
+            faq: string;
+            freeSwap: string;
+            freeTrial: string;
+            maxLoss: string;
+            oneTimeFee: string;
+            package: string;
+            profitTargetToWithdraw: string;
+            scaleUp: string;
+            swapFee: string;
+            titlePrefix: string;
+            titleSuffix: string;
+            tryNow: string;
+            weFundYou: string;
+        };
+    };
 }
 
 type DeepPartial<T> = {

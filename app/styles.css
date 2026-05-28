@@ -2053,6 +2053,7 @@ html:not([dir="rtl"]) .payouts__content .desc .info p:not(:last-child) {
     line-height: 50px;
     font-weight: 500;
     margin-bottom: 10px;
+    color: #ff9922;
 }
 .payouts__list ul li .name {
     font-size: 20px;
@@ -2942,13 +2943,40 @@ html:not([dir="rtl"]) .payouts__content .desc .info p:not(:last-child) {
     background: linear-gradient(90deg, rgba(12, 12, 12, 0) 0%, rgba(0, 0, 0, 0.76) 52%, #000000 100%);
 }
 .testimonials__benefit--list {
+    display: flex;
     padding: 0;
     margin: 0;
     gap: 39px;
     flex-shrink: 0;
 }
 .testimonials__benefit--list li {
-    margin: 15px 20px !important;
+    margin: 10px 0 !important;
+}
+.endless-river {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+}
+.endless-river__track {
+    display: flex;
+    width: max-content;
+    animation: endless-river-scroll 38s linear infinite;
+    will-change: transform;
+    gap: 39px;
+}
+.endless-river--reverse .endless-river__track {
+    animation-direction: reverse;
+}
+.endless-river:hover .endless-river__track {
+    animation-play-state: paused;
+}
+@keyframes endless-river-scroll {
+    from {
+        transform: translate3d(0, 0, 0);
+    }
+    to {
+        transform: translate3d(-50%, 0, 0);
+    }
 }
 .stories {
     margin-bottom: 50px;

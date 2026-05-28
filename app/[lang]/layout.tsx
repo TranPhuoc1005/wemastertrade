@@ -3,6 +3,7 @@ import Header from "../../components/layout/Header";
 import { notFound } from "next/navigation";
 import { isLocale, languages } from "../../lib/i18n/config";
 import { getDictionary } from "../../lib/i18n/getDictionary";
+import Footer from "../../components/layout/Footer";
 
 export default async function LangLayout({
     children,
@@ -24,6 +25,7 @@ export default async function LangLayout({
             <GlobalScripts />
             <Header dict={dict.common.header} lang={lang} />
             {children}
+            <Footer lang={lang} />
         </div>
     );
 }

@@ -1,73 +1,86 @@
 "use client";
 
-import { useState, useCallback, useRef, useEffect } from "react";
-import { fetchData, observeOnce } from "../lib/utils";
+import { useQuery } from "@tanstack/react-query";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import {
+    FIRST_DAILY_PAYOUT_LOAD,
+    MAX_DAILY_PAYOUT_LOAD_MORE_CLICKS,
+    useDailyPayoutStore,
+} from "../stores/dailyPayoutStore";
+import { observeOnce } from "../lib/utils";
 
-interface PayoutItem {
+export interface PayoutItem {
     certificateUrl: string;
     fullName: string;
     payout: number;
     countryName: string;
 }
 
-const FIRST_LOAD = 9;
-const LOAD_MORE_STEP = 3;
-const MAX_CLICKS = 3;
+async function fetchDailyPayouts(): Promise<PayoutItem[]> {
+    const response = await fetch("https://wemastertrade.com/wp-json/custom/v1/daily-payout");
 
-/**
- * Fetch and manage Daily Payout data with load-more functionality.
- * Migrated from: common.js L673-750 (Daily Payout) + L752-784 (Proof Images)
- *
- * Usage:
- * ```tsx
- * const { items, loading, hasMore, loadMore, allDone, sectionRef } = useDailyPayout();
- * ```
- */
+    if (!response.ok) {
+        throw new Error("Failed to load daily payouts");
+    }
+
+    const json = await response.json();
+    const data = json?.Data ?? json?.data ?? json;
+
+    return Array.isArray(data) ? data : [];
+}
+
 export function useDailyPayout() {
-    const [items, setItems] = useState<PayoutItem[]>([]);
-    const [loading, setLoading] = useState(false);
-    const [displayCount, setDisplayCount] = useState(FIRST_LOAD);
-    const [loadMoreClicks, setLoadMoreClicks] = useState(0);
-    const allDataRef = useRef<PayoutItem[]>([]);
-    const sectionRef = useRef<HTMLElement>(null);
+    const sectionRef = useRef<HTMLDivElement>(null);
+    const [isVisible, setIsVisible] = useState(false);
+    const displayCount = useDailyPayoutStore((state) => state.displayCount);
+    const expanded = useDailyPayoutStore((state) => state.expanded);
+    const loadMoreClicks = useDailyPayoutStore((state) => state.loadMoreClicks);
+    const loadMore = useDailyPayoutStore((state) => state.loadMore);
+    const reset = useDailyPayoutStore((state) => state.reset);
 
-    const fetchPayouts = useCallback(async () => {
-        setLoading(true);
-        const { data } = await fetchData<PayoutItem[]>("/wp-json/custom/v1/daily-payout");
-
-        if (data) {
-            allDataRef.current = data;
-            setItems(data.slice(0, FIRST_LOAD));
-            setDisplayCount(FIRST_LOAD);
-        }
-        setLoading(false);
+    useEffect(() => {
+        const cleanup = observeOnce(sectionRef.current, () => setIsVisible(true));
+        return cleanup;
     }, []);
 
-    // Lazy-load when section scrolls into view
+    const query = useQuery({
+        enabled: isVisible,
+        queryFn: fetchDailyPayouts,
+        queryKey: ["daily-payout"],
+    });
+
     useEffect(() => {
-        const cleanup = observeOnce(sectionRef.current, fetchPayouts);
-        return cleanup;
-    }, [fetchPayouts]);
+        if (query.isSuccess) {
+            reset();
+        }
+    }, [query.isSuccess, reset]);
 
-    const loadMore = useCallback(() => {
-        const nextCount = displayCount + LOAD_MORE_STEP;
-        setItems(allDataRef.current.slice(0, nextCount));
-        setDisplayCount(nextCount);
-        setLoadMoreClicks((prev) => prev + 1);
-    }, [displayCount]);
+    const allData = useMemo(() => query.data ?? [], [query.data]);
+    const items = useMemo(() => allData.slice(0, displayCount), [allData, displayCount]);
+    const hasMore = displayCount < allData.length && loadMoreClicks < MAX_DAILY_PAYOUT_LOAD_MORE_CLICKS;
+    const shouldShowViewAll =
+        query.isSuccess &&
+        (allData.length === 0 ||
+            displayCount >= allData.length ||
+            loadMoreClicks >= MAX_DAILY_PAYOUT_LOAD_MORE_CLICKS);
+    const loading = isVisible && query.isLoading;
 
-    const hasMore =
-        displayCount < allDataRef.current.length && loadMoreClicks < MAX_CLICKS;
-    const allDone =
-        displayCount >= allDataRef.current.length || loadMoreClicks >= MAX_CLICKS;
+    const handleLoadMore = useCallback(() => {
+        if (hasMore) {
+            loadMore();
+        }
+    }, [hasMore, loadMore]);
 
     return {
+        error: query.error,
+        expanded,
+        hasMore,
         items,
         loading,
-        hasMore,
-        allDone,
-        loadMore,
         sectionRef,
-        allData: allDataRef.current,
+        shouldShowViewAll,
+        total: allData.length,
+        visibleCount: Math.max(displayCount, FIRST_DAILY_PAYOUT_LOAD),
+        loadMore: handleLoadMore,
     };
 }

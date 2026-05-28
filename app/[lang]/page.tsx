@@ -1,13 +1,17 @@
-import Hero from "../../components/sections/home/Hero";
-import ChallengePackage from "../../components/sections/home/ChallengePackage";
-import Certificates from "../../components/sections/home/Certificates";
-import WhyUs from "../../components/sections/home/WhyUs";
-import HowItWork from "../../components/sections/home/HowItWork";
+
 import { notFound } from "next/navigation";
 import { isLocale } from "../../lib/i18n/config";
 import { getDictionary } from "../../lib/i18n/getDictionary";
-import WhyChoose from "../../components/sections/home/WhyChoose";
+import Hero from "../../components/sections/partials/Hero";
+import Certificates from "../../components/sections/partials/Certificates";
+import WhyUs from "../../components/sections/partials/WhyUs";
+import HowItWork from "../../components/sections/partials/HowItWork";
+import ChallengePackage from "../../components/sections/home/ChallengePackage";
+import WhyChoose from "../../components/sections/partials/WhyChoose";
 import Features from "../../components/sections/home/Features";
+import Traders from "../../components/sections/partials/Traders";
+import Subscribe from "../../components/sections/partials/Subscribe";
+import Payout from "../../components/sections/partials/Payout";
 
 export default async function HomePage({
     params,
@@ -32,6 +36,9 @@ export default async function HomePage({
                 <ChallengePackage dict={dict.home.package} lang={lang} />
                 <WhyChoose lang={lang} />
                 <Features lang={lang} />
+                <Traders lang={lang} />
+                <Subscribe lang={lang} />
+                <Payout lang={lang} />
             </div>
         </main>
     );
