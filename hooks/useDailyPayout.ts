@@ -80,6 +80,7 @@ export function useDailyPayout() {
         sectionRef,
         shouldShowViewAll,
         total: allData.length,
+        allData,
         visibleCount: Math.max(displayCount, FIRST_DAILY_PAYOUT_LOAD),
         loadMore: handleLoadMore,
     };

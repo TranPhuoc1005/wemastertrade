@@ -11,7 +11,7 @@ export default function Certificates({lang}: LangProps) {
                 <div className="title">
                     <p className="title__sub">Certification</p>
                     <h3>Awards & <br /><span>Recognition</span></h3>
-                    <div className="btn"><p><a href={`/${lang}/certification/`}><span>Learn more</span></a></p></div>
+                    <div className="btn"><p><Link href={`/${lang}/certification/`}><span>Learn more</span></Link></p></div>
                 </div>
                 <p className="certificates__line"><Image loading="lazy" src="/images/certificates_line.png" width={1} height={258} alt="Awards & Recognition" /></p>
                 <ul className="certificates__bnr">
