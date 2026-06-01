@@ -2,10 +2,6 @@
 
 import { usePopup } from "../../hooks/usePopup";
 
-/**
- * Popup WMT — shows once until dismissed (localStorage-based, 14 days).
- * Migrated from: HTML in Header.tsx + IIFE in common.js L419-456
- */
 export default function Popup() {
     const { visible, dismiss } = usePopup();
 
@@ -24,7 +20,6 @@ export default function Popup() {
                 backgroundColor: "rgba(0, 0, 0, 0.7)",
             }}
             onClick={(e) => {
-                // Close when clicking backdrop
                 if (e.target === e.currentTarget) dismiss();
             }}>
             <div className="popupWmt-content text-center relative">

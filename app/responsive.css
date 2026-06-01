@@ -345,9 +345,7 @@
         width: 50%;
         padding: 56px 50px 30px;
     }
-    .office {
-        margin-bottom: 83px;
-    }
+
     .ourteam__content .item:hover::before {
         width: 94.188%;
         height: 73.637%;

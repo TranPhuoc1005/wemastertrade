@@ -13,18 +13,6 @@ interface BlogConfig {
     lang: string;
 }
 
-/**
- * Blog posts AJAX loading with tab switching and load-more.
- * Migrated from: common.js L921-1153
- *
- * Usage:
- * ```tsx
- * const {
- *   activeTab, content, loading, hasMore,
- *   loadPosts, loadMore, switchTab
- * } = useBlogPosts(config);
- * ```
- */
 export function useBlogPosts(config: BlogConfig) {
     const [activeTab, setActiveTab] = useState<string>("");
     const [content, setContent] = useState<string>("");
@@ -42,7 +30,6 @@ export function useBlogPosts(config: BlogConfig) {
         async (baseCat: string, page = 1, append = false) => {
             const cacheKey = getCacheKey(baseCat);
 
-            // Check cache for first page
             if (!append && page === 1 && cacheRef.current[cacheKey]) {
                 const cached = cacheRef.current[cacheKey];
                 setContent(cached.html);
@@ -84,7 +71,6 @@ export function useBlogPosts(config: BlogConfig) {
                 return;
             }
 
-            // Load more (append)
             try {
                 const res = await fetch(url);
                 const json = await res.json();
@@ -95,7 +81,6 @@ export function useBlogPosts(config: BlogConfig) {
                 currentPageRef.current = page;
                 setHasMore(json.has_more ?? false);
 
-                // Update cache
                 if (cacheRef.current[cacheKey]) {
                     cacheRef.current[cacheKey].html += json.html;
                     cacheRef.current[cacheKey].page = page;

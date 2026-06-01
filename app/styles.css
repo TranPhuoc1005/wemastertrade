@@ -1049,17 +1049,20 @@ select {
     width: 40px;
     height: 40px;
 }
-.pagination li a {
+.pagination li span {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
     height: 100%;
+    cursor: pointer;
 }
-.pagination li.active a {
+.pagination li.active span {
     background-color: var(--main-cl);
     color: #0c0c0c;
     border-radius: 5px;
+    width: 100%;
+    height: 100%;
 }
 .lightbox-item {
     position: relative;
@@ -1194,8 +1197,12 @@ select {
     color: #fff;
 }
 .boxcopy .row__input .copy_btn {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
     position: absolute;
-    top: 5px;
+    top: 0;
     right: 3px;
 }
 .boxcopy .btn.btn__download span {
@@ -4107,6 +4114,9 @@ html:not([dir="rtl"]) .payouts__content .desc .info p:not(:last-child) {
 .aboutceo__content .title {
     margin-bottom: 40px;
 }
+.aboutceo__content .cnt .item.active .desc {
+    display: block;
+}
 .aboutceo__content .intro {
     padding: 40px 50px;
     margin-bottom: 26px;
@@ -4426,7 +4436,6 @@ html:not([dir="rtl"]) .payouts__content .desc .info p:not(:last-child) {
     margin-bottom: 55px;
 }
 .office {
-    margin-bottom: 50px;
     position: relative;
     z-index: 1;
 }
@@ -4494,6 +4503,7 @@ html:not([dir="rtl"]) .payouts__content .desc .info p:not(:last-child) {
     color: var(--main-cl);
     font-size: 24px;
     line-height: 1.2;
+    font-weight: 500;
 }
 .office .item .desc p:not(:last-child) {
     margin-bottom: 20px;

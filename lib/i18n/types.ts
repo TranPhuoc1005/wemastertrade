@@ -86,6 +86,47 @@ export interface Dictionary {
             weFundYou: string;
         };
     };
+    payout: {
+        hero: {
+            title: string;
+            desc: string;
+            btnInterviews: string;
+            btnDailyPayout: string;
+        };
+        meet: {
+            titleHtml: string;
+            loadMore: string;
+        };
+        daily: {
+            titleSub: string;
+            titleMain: string;
+            blockchainDesc: string;
+            totalPayouts: string;
+            tabAll: string;
+            tab7d: string;
+            tab30d: string;
+            tab12m: string;
+            tableTitle: string;
+            searchPlaceholder: string;
+            entriesDescription: string;
+            chartColumns: {
+                region: string;
+                amount: string;
+                share: string;
+                count: string;
+            };
+            columns: {
+                no: string;
+                name: string;
+                payout: string;
+                accountSize: string;
+                country: string;
+                time: string;
+                txHash: string;
+                certificate: string;
+            };
+        };
+    };
 }
 
 type DeepPartial<T> = {

@@ -3,6 +3,7 @@
 import { useHeaderScroll } from "../../hooks/useHeaderScroll";
 import { useAnchorLink } from "../../hooks/useAnchorLink";
 import Disclaimer from "../ui/Disclaimer";
+import Lightbox from "../ui/Lightbox";
 import Popup from "../ui/Popup";
 import YoutubePopup from "../ui/YoutubePopup";
 
@@ -19,6 +20,7 @@ export default function GlobalScripts() {
         <>
             <Disclaimer />
             <Popup />
+            <Lightbox />
             <YoutubePopup />
         </>
     );

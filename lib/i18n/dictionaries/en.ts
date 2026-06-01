@@ -1,4 +1,5 @@
 import type { Dictionary } from "../types";
+import { payoutTranslations } from "../payoutTranslations";
 
 const en: Dictionary = {
     common: {
@@ -89,6 +90,7 @@ const en: Dictionary = {
             weFundYou: "we fund you",
         },
     },
+    payout: payoutTranslations.en,
 };
 
 export default en;

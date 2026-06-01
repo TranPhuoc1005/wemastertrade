@@ -5,11 +5,6 @@ import { useState, useEffect, useCallback } from "react";
 const STORAGE_KEY = "wmt_popup_closed_time";
 const EXPIRE_DAYS = 14;
 
-/**
- * localStorage-based popup state.
- * Shows popup if not dismissed within 14 days.
- * Migrated from: common.js L419-456
- */
 export function usePopup() {
     const [visible, setVisible] = useState(false);
 

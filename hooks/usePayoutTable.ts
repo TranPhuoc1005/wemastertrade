@@ -2,44 +2,21 @@
 
 import { useState, useCallback, useRef, useEffect } from "react";
 import { formatTimestamp, observeOnce } from "../lib/utils";
-
-interface PayoutTableItem {
-    fullName: string;
-    payout: number;
-    accountSize: number;
-    countryName: string;
-    createdAt: string;
-    timestamp: string;
-    transactionHash: string;
-    certificateUrl: string;
-}
+import { getDailyPayoutTable, type PayoutTableRow } from "../services/wordpress/payout";
 
 interface PagingInfo {
     totalPage: number;
     maxPerPage: number;
     totalItem: number;
 }
-
-/**
- * Server-side paginated payout table with search.
- * Migrated from: common.js L786-919
- *
- * Usage:
- * ```tsx
- * const {
- *   rows, paging, currentPage, loading, search,
- *   setSearch, goToPage, sectionRef, formatTimestamp
- * } = usePayoutTable();
- * ```
- */
 export function usePayoutTable() {
-    const [rows, setRows] = useState<PayoutTableItem[]>([]);
+    const [rows, setRows] = useState<PayoutTableRow[]>([]);
     const [paging, setPaging] = useState<PagingInfo | null>(null);
     const [currentPage, setCurrentPage] = useState(1);
     const [loading, setLoading] = useState(false);
     const [search, setSearch] = useState("");
     const sectionRef = useRef<HTMLElement>(null);
-    const pageCacheRef = useRef<Record<string, PayoutTableItem[]>>({});
+    const pageCacheRef = useRef<Record<string, PayoutTableRow[]>>({});
     const debounceRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
 
     const loadPage = useCallback(
@@ -55,18 +32,14 @@ export function usePayoutTable() {
             }
 
             try {
-                const params = new URLSearchParams({
-                    page: String(page),
-                    limit: "10",
-                });
-                if (keyword) params.set("keyword", keyword);
-
-                const res = await fetch(
-                    `/wp-json/custom/v1/daily-payout?${params}`
-                );
-                const json = await res.json();
+                const json = await getDailyPayoutTable(page, keyword);
                 const list = json.data ?? [];
-                const pagingData = json.paging ?? null;
+                
+                const pagingData: PagingInfo = {
+                    totalPage: json.paging?.totalPage || 0,
+                    maxPerPage: json.paging?.limit || 10,
+                    totalItem: json.paging?.totalItem || 0
+                };
 
                 if (!Array.isArray(list)) throw new Error("Invalid response");
 
@@ -82,7 +55,6 @@ export function usePayoutTable() {
         []
     );
 
-    // Lazy-load when section scrolls into view
     useEffect(() => {
         const cleanup = observeOnce(sectionRef.current, () => loadPage(1, ""));
         return cleanup;

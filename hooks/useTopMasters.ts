@@ -27,15 +27,6 @@ interface TabConfig {
     label: string;
 }
 
-/**
- * Fetch and manage Top Masters data with tab switching.
- * Migrated from: common.js L515-671
- *
- * Usage:
- * ```tsx
- * const { masters, activeTab, loadTab, tabs, sectionRef, loading } = useTopMasters();
- * ```
- */
 export function useTopMasters(tabs: TabConfig[]) {
     const [masters, setMasters] = useState<MasterItem[]>([]);
     const [activeTab, setActiveTab] = useState(tabs[0]?.tab ?? "");

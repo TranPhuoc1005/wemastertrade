@@ -2,11 +2,6 @@
 
 import { useState, useEffect, useCallback } from "react";
 
-/**
- * YouTube popup modal — opens YouTube embed in a fullscreen overlay.
- * Listens for clicks on .play-video and elements with data-youtube-id.
- * Migrated from: jQuery youtube-popup handler in common.js L1156-1199
- */
 export default function YoutubePopup() {
     const [videoId, setVideoId] = useState<string | null>(null);
 

@@ -2,10 +2,6 @@
 
 import { useDisclaimer } from "../../hooks/useDisclaimer";
 
-/**
- * Disclaimer banner — shows once until dismissed (cookie-based, 14 days).
- * Migrated from: HTML in Header.tsx + JS in common.js L404-416
- */
 export default function Disclaimer() {
     const { visible, dismiss } = useDisclaimer();
 

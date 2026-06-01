@@ -1,0 +1,786 @@
+import type { Locale } from "./config";
+
+export interface PayoutDictionary {
+    hero: {
+        title: string;
+        desc: string;
+        btnInterviews: string;
+        btnDailyPayout: string;
+    };
+    meet: {
+        titleHtml: string;
+        loadMore: string;
+    };
+    daily: {
+        titleSub: string;
+        titleMain: string;
+        blockchainDesc: string;
+        totalPayouts: string;
+        tabAll: string;
+        tab7d: string;
+        tab30d: string;
+        tab12m: string;
+        tableTitle: string;
+        searchPlaceholder: string;
+        entriesDescription: string;
+        chartColumns: {
+            region: string;
+            amount: string;
+            share: string;
+            count: string;
+        };
+        columns: {
+            no: string;
+            name: string;
+            payout: string;
+            accountSize: string;
+            country: string;
+            time: string;
+            txHash: string;
+            certificate: string;
+        };
+    };
+}
+
+export const payoutTranslations: Record<string, PayoutDictionary> = {
+    en: {
+        hero: {
+            title: "Payout",
+            desc: "We <strong>process payouts quickly</strong>, connect with our traders on <strong>offline events</strong>, and build a <strong>supportive community</strong>. These are all key parts of our business.",
+            btnInterviews: "Trader Interviews",
+            btnDailyPayout: "Daily payout",
+        },
+        meet: {
+            titleHtml: '<p class="title__sub">WMT Traders</p><h3>Meet <span>Successful WMT Traders</span></h3><p class="txt">Discover the hidden strategies and insights that have fueled our traders\' success on their<br>remarkable trading journey with WeMasterTrade.</p>',
+            loadMore: "Load more",
+        },
+        daily: {
+            titleSub: "Daily Payout",
+            titleMain: "WeMasterTrade<br><span>Daily Payout</span>",
+            blockchainDesc: "Discover how blockchain ensures payout integrity and how you can independently verify every withdrawal with confidence.",
+            totalPayouts: "Total Payouts",
+            tabAll: "All",
+            tab7d: "Last 7 days",
+            tab30d: "Last 30 days",
+            tab12m: "Last 365 days",
+            tableTitle: "Top Daily Payout",
+            searchPlaceholder: "Search (Name)...",
+            entriesDescription: "Showing {start} to {end} of {total} entries",
+            chartColumns: {
+                region: "Region",
+                amount: "Amount",
+                share: "Share",
+                count: "Count",
+            },
+            columns: {
+                no: "No",
+                name: "Name",
+                payout: "Payout",
+                accountSize: "Account Size",
+                country: "Country",
+                time: "Time",
+                txHash: "Transaction Hash",
+                certificate: "Certificate",
+            },
+        },
+    },
+    vi: {
+        hero: {
+            title: "Thanh toán",
+            desc: "Chúng tôi <strong>xử lý thanh toán nhanh chóng</strong>, kết nối với nhà giao dịch của chúng tôi tại <strong>các sự kiện offline</strong> và xây dựng một <strong>cộng đồng hỗ trợ</strong>. Đây đều là những phần quan trọng trong hoạt động kinh doanh của chúng tôi.",
+            btnInterviews: "Phỏng vấn nhà giao dịch",
+            btnDailyPayout: "Thanh toán hàng ngày",
+        },
+        meet: {
+            titleHtml: '<p class="title__sub">Nhà giao dịch WMT</p><h3>Gặp gỡ <span>những nhà giao dịch WMT thành công</span></h3><p class="txt">Khám phá các chiến lược và bài học đằng sau sự thành công của các nhà giao dịch của chúng tôi<br>trên hành trình giao dịch tuyệt vời với WeMasterTrade.</p>',
+            loadMore: "Xem thêm",
+        },
+        daily: {
+            titleSub: "Thanh toán hàng ngày",
+            titleMain: "WeMasterTrade<br><span>Thanh toán hàng ngày</span>",
+            blockchainDesc: "Khám phá cách blockchain đảm bảo tính toàn vẹn của thanh toán và cách bạn tự xác minh từng giao dịch rút tiền một cách đáng tin cậy.",
+            totalPayouts: "Tổng thanh toán",
+            tabAll: "Tất cả",
+            tab7d: "7 ngày qua",
+            tab30d: "30 ngày qua",
+            tab12m: "365 ngày qua",
+            tableTitle: "Thanh toán hàng ngày hàng đầu",
+            searchPlaceholder: "Tìm kiếm (Tên)...",
+            entriesDescription: "Hiển thị từ {start} đến {end} trong tổng số {total} mục",
+            chartColumns: {
+                region: "Khu vực",
+                amount: "Số tiền",
+                share: "Tỷ lệ",
+                count: "Số lượng",
+            },
+            columns: {
+                no: "STT",
+                name: "Tên",
+                payout: "Số tiền",
+                accountSize: "Quy mô tài khoản",
+                country: "Quốc gia",
+                time: "Thời gian",
+                txHash: "Mã giao dịch",
+                certificate: "Chứng chỉ",
+            },
+        },
+    },
+    th: {
+        hero: {
+            title: "การจ่ายเงิน",
+            desc: "เรา<strong>ดำเนินการจ่ายเงินอย่างรวดเร็ว</strong> เชื่อมต่อกับเทรดเดอร์ผ่าน<strong>กิจกรรมออฟไลน์</strong> และสร้าง<strong>ชุมชนที่สนับสนุนกัน</strong> ซึ่งทั้งหมดนี้เป็นส่วนสำคัญของธุรกิจของเรา",
+            btnInterviews: "สัมภาษณ์เทรดเดอร์",
+            btnDailyPayout: "การจ่ายเงินรายวัน",
+        },
+        meet: {
+            titleHtml: '<p class="title__sub">เทรดเดอร์ WMT</p><h3>พบกับ <span>เทรดเดอร์ WMT ที่ประสบความสำเร็จ</span></h3><p class="txt">ค้นพบกลยุทธ์และมุมมองเชิงลึกที่อยู่เบื้องหลังความสำเร็จของเทรดเดอร์ของเรา<br>ตลอดเส้นทางการเทรดอันน่าทึ่งกับ WeMasterTrade</p>',
+            loadMore: "โหลดเพิ่มเติม",
+        },
+        daily: {
+            titleSub: "การจ่ายเงินรายวัน",
+            titleMain: "WeMasterTrade<br><span>การจ่ายเงินรายวัน</span>",
+            blockchainDesc: "ตรวจสอบว่าบล็อกเชนช่วยรับประกันความโปร่งใสและความถูกต้องของการจ่ายเงินอย่างไร และวิธีที่คุณสามารถตรวจสอบการถอนเงินทุกครั้งได้ด้วยตนเอง",
+            totalPayouts: "ยอดการจ่ายทั้งหมด",
+            tabAll: "ทั้งหมด",
+            tab7d: "7 วันที่ผ่านมา",
+            tab30d: "30 วันที่ผ่านมา",
+            tab12m: "365 วันที่ผ่านมา",
+            tableTitle: "ยอดการจ่ายเงินรายวันสูงสุด",
+            searchPlaceholder: "ค้นหา...",
+            entriesDescription: "แสดง {start} ถึง {end} จากทั้งหมด {total} รายการ",
+            chartColumns: {
+                region: "ภูมิภาค",
+                amount: "จำนวนเงิน",
+                share: "สัดส่วน",
+                count: "จำนวน",
+            },
+            columns: {
+                no: "ลำดับ",
+                name: "ชื่อ",
+                payout: "การจ่ายเงิน",
+                accountSize: "ขนาดบัญชี",
+                country: "ประเทศ",
+                time: "เวลา",
+                txHash: "แฮชธุรกรรม",
+                certificate: "ใบรับรอง",
+            },
+        },
+    },
+    ja: {
+        hero: {
+            title: "ペイアウト",
+            desc: "私たちは<strong>迅速に支払いを処理し</strong>、<strong>オフラインイベント</strong>でトレーダーとつながり、<strong>支え合うコミュニティ</strong>を構築しています。これらはすべて私たちの事業の重要な要素です。",
+            btnInterviews: "トレーダーインタビュー",
+            btnDailyPayout: "日次ペイアウト",
+        },
+        meet: {
+            titleHtml: '<p class="title__sub">WMTトレーダー</p><h3>紹介します <span>成功したWMTトレーダー</span></h3><p class="txt">WeMasterTradeでの素晴らしいトレードの旅路の中で、<br>トレーダーたちの成功を支えた戦略や洞察を発見してください。</p>',
+            loadMore: "もっと読み込む",
+        },
+        daily: {
+            titleSub: "日次ペイアウト",
+            titleMain: "WeMasterTrade<br><span>日次ペイアウト</span>",
+            blockchainDesc: "ブロックチェーンがペイアウトの透明性と信頼性をどのように確保するのか、そしてすべての出金を自分で確認できる仕組みをご覧ください。",
+            totalPayouts: "総ペイアウト",
+            tabAll: "すべて",
+            tab7d: "過去7日間",
+            tab30d: "過去30日間",
+            tab12m: "過去365日間",
+            tableTitle: "トップ日次ペイアウト",
+            searchPlaceholder: "検索...",
+            entriesDescription: "{total}件中 {start} から {end} を表示",
+            chartColumns: {
+                region: "地域",
+                amount: "金額",
+                share: "割合",
+                count: "件数",
+            },
+            columns: {
+                no: "No",
+                name: "名前",
+                payout: "ペイアウト",
+                accountSize: "口座サイズ",
+                country: "国",
+                time: "時間",
+                txHash: "トランザクションハッシュ",
+                certificate: "証明書",
+            },
+        },
+    },
+    es: {
+        hero: {
+            title: "Pago",
+            desc: "<strong>Procesamos pagos rápidamente</strong>, nos conectamos con nuestros traders en <strong>eventos presenciales</strong> y construimos una <strong>comunidad de apoyo</strong>. Todos estos son elementos clave de nuestro negocio.",
+            btnInterviews: "Entrevistas a Traders",
+            btnDailyPayout: "Pago diario",
+        },
+        meet: {
+            titleHtml: '<p class="title__sub">Traders WMT</p><h3>Conoce a <span>los traders exitosos de WMT</span></h3><p class="txt">Descubre las estrategias ocultas y los conocimientos que han impulsado el éxito de nuestros traders<br>en su notable trayectoria de trading con WeMasterTrade.</p>',
+            loadMore: "Cargar más",
+        },
+        daily: {
+            titleSub: "Pago diario",
+            titleMain: "WeMasterTrade<br><span>Pago diario</span>",
+            blockchainDesc: "Descubre cómo la tecnología blockchain garantiza la integridad de los pagos y cómo puedes verificar cada retiro de forma independiente con total confianza.",
+            totalPayouts: "Pagos totales",
+            tabAll: "Todos",
+            tab7d: "Últimos 7 días",
+            tab30d: "Últimos 30 días",
+            tab12m: "Últimos 365 días",
+            tableTitle: "Pago diario más alto",
+            searchPlaceholder: "Buscar...",
+            entriesDescription: "Mostrando del {start} al {end} de {total} registros",
+            chartColumns: {
+                region: "Región",
+                amount: "Cantidad",
+                share: "Participación",
+                count: "Cantidad",
+            },
+            columns: {
+                no: "N°",
+                name: "Nombre",
+                payout: "Pago",
+                accountSize: "Tamaño de cuenta",
+                country: "País",
+                time: "Fecha/Hora",
+                txHash: "Hash de transacción",
+                certificate: "Certificación",
+            },
+        },
+    },
+    "es-pe": {
+        hero: {
+            title: "Cuenta Fondeada con Pagos Rápidos",
+            desc: "Resultados Reales de Traders Reales en WeMasterTrade. Descubre los retiros verificados y los payouts de nuestra comunidad.",
+            btnInterviews: "Entrevistas a Traders",
+            btnDailyPayout: "Empieza y Recibe Pagos Reales",
+        },
+        meet: {
+            titleHtml: '<p class="title__sub">Traders WMT</p><h2 class="h3">Historias de Traders con <span>Cuenta Fondeada</span></h2><p class="txt">Descubre cómo nuestros traders financiados superaron el challenge, obtuvieron su cuenta fondeada y hoy generan payouts reales con una prop firm confiable. Aprende las estrategias y la disciplina que les permitió empezar a cobrar ganancias consistentes.</p>',
+            loadMore: "Cargar más",
+        },
+        daily: {
+            titleSub: "Pago diario",
+            titleMain: "<h3><span>Pago Diario</span> en Nuestra Prop Firm WeMasterTrade</h3>",
+            blockchainDesc: "Descubre cómo la tecnología blockchain garantiza la integridad de los pagos y cómo puedes verificar cada retiro de forma independiente con total confianza.",
+            totalPayouts: "Pagos totales",
+            tabAll: "Todos",
+            tab7d: "Últimos 7 días",
+            tab30d: "Últimos 30 días",
+            tab12m: "Últimos 365 días",
+            tableTitle: "Pago diario más alto",
+            searchPlaceholder: "Buscar...",
+            entriesDescription: "Mostrando del {start} al {end} de {total} registros",
+            chartColumns: {
+                region: "Región",
+                amount: "Cantidad",
+                share: "Participación",
+                count: "Cantidad",
+            },
+            columns: {
+                no: "N°",
+                name: "Nombre",
+                payout: "Pago",
+                accountSize: "Tamaño de cuenta",
+                country: "País",
+                time: "Fecha/Hora",
+                txHash: "Hash de transacción",
+                certificate: "Certificación",
+            },
+        },
+    },
+    fr: {
+        hero: {
+            title: "Paiement",
+            desc: "Nous <strong>traitons les paiements rapidement</strong>, rencontrons nos traders lors <strong>d’événements hors ligne</strong> et construisons une <strong>communauté solidaire</strong>. Ce sont des éléments clés de notre activité.",
+            btnInterviews: "Interviews de Traders",
+            btnDailyPayout: "Paiement quotidien",
+        },
+        meet: {
+            titleHtml: '<p class="title__sub">Traders WMT</p><h3>Rencontrez <span>les traders WMT à succès</span></h3><p class="txt">Découvrez les stratégies et les perspectives cachées qui ont alimenté le succès de nos traders<br>au cours de leur remarquable parcours de trading avec WeMasterTrade.</p>',
+            loadMore: "Charger plus",
+        },
+        daily: {
+            titleSub: "Paiement quotidien",
+            titleMain: "WeMasterTrade<br><span>Paiement quotidien</span>",
+            blockchainDesc: "Découvrez comment la blockchain garantit la transparence des paiements et comment vous pouvez vérifier chaque retrait de manière autonome.",
+            totalPayouts: "Paiements totaux",
+            tabAll: "Tous",
+            tab7d: "7 derniers jours",
+            tab30d: "30 derniers jours",
+            tab12m: "365 derniers jours",
+            tableTitle: "Meilleur paiement quotidien",
+            searchPlaceholder: "Rechercher...",
+            entriesDescription: "Affichage de {start} à {end} sur {total} entrées",
+            chartColumns: {
+                region: "Région",
+                amount: "Montant",
+                share: "Part",
+                count: "Nombre",
+            },
+            columns: {
+                no: "N°",
+                name: "Nom",
+                payout: "Paiement",
+                accountSize: "Taille du compte",
+                country: "Pays",
+                time: "Horodatage",
+                txHash: "Hash de transaction",
+                certificate: "Certification",
+            },
+        },
+    },
+    ru: {
+        hero: {
+            title: "Выплата",
+            desc: "Мы <strong>быстро обрабатываем выплаты</strong>, взаимодействуем с трейдерами на <strong>офлайн-мероприятиях</strong> и формируем <strong>поддерживающее сообщество</strong>. Всё это — ключевые элементы нашего бизнеса.",
+            btnInterviews: "Интервью с трейдерами",
+            btnDailyPayout: "Ежедневная выплата",
+        },
+        meet: {
+            titleHtml: '<p class="title__sub">Трейдеры WMT</p><h3>Познакомьтесь с <span>успешными трейдерами WMT</span></h3><p class="txt">Узнайте скрытые стратегии и инсайты, которые привели наших трейдеров к успеху<br>в их впечатляющем торговом пути с WeMasterTrade.</p>',
+            loadMore: "Показать еще",
+        },
+        daily: {
+            titleSub: "Ежедневная выплата",
+            titleMain: "WeMasterTrade<br><span>Ежедневная выплата</span>",
+            blockchainDesc: "Узнайте, как блокчейн обеспечивает целостность выплат и как вы можете самостоятельно проверять каждое снятие средств с полной уверенностью.",
+            totalPayouts: "Общие выплаты",
+            tabAll: "Все",
+            tab7d: "Последние 7 дней",
+            tab30d: "Последние 30 дней",
+            tab12m: "Последние 365 дней",
+            tableTitle: "Лучшая ежедневная выплата",
+            searchPlaceholder: "Поиск...",
+            entriesDescription: "Показаны записи с {start} по {end} из {total}",
+            chartColumns: {
+                region: "Регион",
+                amount: "Сумма",
+                share: "Доля",
+                count: "Количество",
+            },
+            columns: {
+                no: "№",
+                name: "Имя",
+                payout: "Выплата",
+                accountSize: "Размер счета",
+                country: "Страна",
+                time: "Время",
+                txHash: "Хеш транзакции",
+                certificate: "Сертификация",
+            },
+        },
+    },
+    ko: {
+        hero: {
+            title: "출금",
+            desc: "당사는 <strong>신속하게 지급을 처리하고</strong>, <strong>오프라인 이벤트</strong>를 통해 트레이더와 소통하며, <strong>서로를 지원하는 커뮤니تی</strong>를 구축합니다. 이는 모두 우리의 핵심 요소입니다.",
+            btnInterviews: "트레이더 인터뷰",
+            btnDailyPayout: "일일 지급",
+        },
+        meet: {
+            titleHtml: '<p class="title__sub">WMT 트레이더</p><h3>만나보세요 <span>성공적인 WMT 트레이더</span></h3><p class="txt">WeMasterTrade와 함께한 놀라운 트레이딩 여정 속에서<br>우리 트레이더들의 성공을 이끈 전략과 인사이트를 발견해 보세요.</p>',
+            loadMore: "더 보기",
+        },
+        daily: {
+            titleSub: "일일 지급",
+            titleMain: "WeMasterTrade<br><span>일일 지급</span>",
+            blockchainDesc: "블록체인이 지급의 무결성을 어떻게 보장하는지, 그리고 모든 출금을 스스로 검증할 수 있는 방법을 알아보세요.",
+            totalPayouts: "총 지급액",
+            tabAll: "전체",
+            tab7d: "최근 7일",
+            tab30d: "최근 30일",
+            tab12m: "최근 365일",
+            tableTitle: "최고 일일 지급액",
+            searchPlaceholder: "검색...",
+            entriesDescription: "총 {total}개 중 {start}부터 {end}까지 표시",
+            chartColumns: {
+                region: "지역",
+                amount: "금액",
+                share: "비율",
+                count: "건수",
+            },
+            columns: {
+                no: "No",
+                name: "이름",
+                payout: "지급",
+                accountSize: "계좌 크기",
+                country: "국가",
+                time: "시간",
+                txHash: "트랜잭션 해시",
+                certificate: "인증",
+            },
+        },
+    },
+    zh: {
+        hero: {
+            title: "提款",
+            desc: "我们<strong>快速处理结算</strong>，通过<strong>线下活动</strong>与交易者建立联系，并打造<strong>支持性的社区</strong>。这些都是我们业务的重要组成部分。",
+            btnInterviews: "交易者访谈",
+            btnDailyPayout: "每日付款",
+        },
+        meet: {
+            titleHtml: '<p class="title__sub">WMT 交易员</p><h3>认识 <span>成功的 WMT 交易员</span></h3><p class="txt">探索推动我们交易员成功的隐藏策略与见解，<br>了解他们在 WeMasterTrade 的非凡交易旅程。</p>',
+            loadMore: "加载更多",
+        },
+        daily: {
+            titleSub: "每日付款",
+            titleMain: "WeMasterTrade<br><span>每日付款</span>",
+            blockchainDesc: "了解区块链如何确保付款的完整性，以及您如何能够独立验证每一次提款，安心可靠。",
+            totalPayouts: "总付款",
+            tabAll: "所有",
+            tab7d: "过去7天",
+            tab30d: "过去30天",
+            tab12m: "过去365天",
+            tableTitle: "最高每日付款",
+            searchPlaceholder: "搜索...",
+            entriesDescription: "显示第 {start} 到 {end} 条，共 {total} 条",
+            chartColumns: {
+                region: "地区",
+                amount: "金额",
+                share: "占比",
+                count: "数量",
+            },
+            columns: {
+                no: "序号",
+                name: "姓名",
+                payout: "付款",
+                accountSize: "账户规模",
+                country: "国家",
+                time: "时间",
+                txHash: "交易哈希",
+                certificate: "认证",
+            },
+        },
+    },
+    hk: {
+        hero: {
+            title: "提款",
+            desc: "我們<strong>快速處理付款</strong>，透過<strong>線下活動</strong>與交易者建立聯繫，並打造<strong>支持性的社群</strong>。這些都是我們業務的重要組成部分。",
+            btnInterviews: "交易者訪談",
+            btnDailyPayout: "每日付款",
+        },
+        meet: {
+            titleHtml: '<p class="title__sub">WMT 交易員</p><h3>認識 <span>成功的 WMT 交易員</span></h3><p class="txt">探索推動我們交易員成功的隱藏策略與見解，<br>了解他們在 WeMasterTrade 的卓越交易旅程。</p>',
+            loadMore: "加載更多",
+        },
+        daily: {
+            titleSub: "每日付款",
+            titleMain: "WeMasterTrade<br><span>每日付款</span>",
+            blockchainDesc: "了解區塊鏈如何確保付款의完整性，以及您如何能夠獨立驗證每一次提款，安心可靠。",
+            totalPayouts: "總付款",
+            tabAll: "所有",
+            tab7d: "過去7天",
+            tab30d: "過去30天",
+            tab12m: "過去365天",
+            tableTitle: "最高每日付款",
+            searchPlaceholder: "搜尋...",
+            entriesDescription: "顯示第 {start} 至 {end} 條，共 {total} 條",
+            chartColumns: {
+                region: "地區",
+                amount: "金額",
+                share: "佔比",
+                count: "數量",
+            },
+            columns: {
+                no: "序號",
+                name: "姓名",
+                payout: "付款",
+                accountSize: "帳戶規模",
+                country: "國家",
+                time: "時間",
+                txHash: "交易哈希",
+                certificate: "認證",
+            },
+        },
+    },
+    tr: {
+        hero: {
+            title: "Ödeme",
+            desc: "<strong>Ödemeleri hızlı şekilde gerçekleştiririz</strong>, traderlarımızla <strong>offline etkinliklerde</strong> buluşur ve <strong>destekleyici bir topluluk</strong> oluştururuz. Bunların hepsi işimizin temel parçalarıdır.",
+            btnInterviews: "Trader Röportajları",
+            btnDailyPayout: "Günlük ödeme",
+        },
+        meet: {
+            titleHtml: '<p class="title__sub">WMT Traderları</p><h3>Tanışın <span>Başarılı WMT Traderlarıyla</span></h3><p class="txt">Traderlarımızın başarısını sağlayan gizli stratejileri ve içgörüleri keşfedin,<br>WeMasterTrade ile çıktıkları olağanüstü trading yolculuğunda.</p>',
+            loadMore: "Daha fazla yükle",
+        },
+        daily: {
+            titleSub: "Günlük ödeme",
+            titleMain: "WeMasterTrade<br><span>Günlük ödeme</span>",
+            blockchainDesc: "Blok zincirinin ödemelerin bütünlüğünü nasıl sağladığını và mỗi lần rút tiền có thể được xác minh độc lập.",
+            totalPayouts: "Toplam Ödemeler",
+            tabAll: "Hepsi",
+            tab7d: "Son 7 gün",
+            tab30d: "Son 30 gün",
+            tab12m: "Son 365 gün",
+            tableTitle: "En Yüksek Günlük Ödeme",
+            searchPlaceholder: "Ara...",
+            entriesDescription: "{total} kaydın {start} ila {end} arası gösteriliyor",
+            chartColumns: {
+                region: "Bölge",
+                amount: "Tutar",
+                share: "Pay",
+                count: "Adet",
+            },
+            columns: {
+                no: "No",
+                name: "İsim",
+                payout: "Ödeme",
+                accountSize: "Hesap Büyüklüğü",
+                country: "Ülke",
+                time: "Zaman",
+                txHash: "İşlem Hash",
+                certificate: "Sertifika",
+            },
+        },
+    },
+    id: {
+        hero: {
+            title: "Pembayaran",
+            desc: "Kami <strong>memproses pembayaran dengan cepat</strong>, terhubung dengan trader kami di <strong>acara offline</strong>, dan membangun <strong>komunitas yang suportif</strong>. Ini semua adalah bagian utama dari bisnis kami.",
+            btnInterviews: "Wawancara Trader",
+            btnDailyPayout: "Pembayaran harian",
+        },
+        meet: {
+            titleHtml: '<p class="title__sub">Trader WMT</p><h3>Temui <span>Trader WMT yang Sukses</span></h3><p class="txt">Temukan strategi tersembunyi dan wawasan yang mendorong kesuksesan trader kami<br>dalam perjalanan trading mereka bersama WeMasterTrade.</p>',
+            loadMore: "Muat lebih banyak",
+        },
+        daily: {
+            titleSub: "Pembayaran harian",
+            titleMain: "WeMasterTrade<br><span>Pembayaran harian</span>",
+            blockchainDesc: "Temukan bagaimana blockchain memastikan integritas pembayaran dan bagaimana Anda dapat memverifikasi setiap penarikan secara mandiri dengan penuh keyakinan.",
+            totalPayouts: "Total Pembayaran",
+            tabAll: "Semua",
+            tab7d: "7 hari terakhir",
+            tab30d: "30 hari terakhir",
+            tab12m: "365 hari terakhir",
+            tableTitle: "Pembayaran Harian Tertinggi",
+            searchPlaceholder: "Cari...",
+            entriesDescription: "Menampilkan {start} hingga {end} dari {total} entri",
+            chartColumns: {
+                region: "Wilayah",
+                amount: "Jumlah",
+                share: "Porsi",
+                count: "Jumlah",
+            },
+            columns: {
+                no: "No",
+                name: "Nama",
+                payout: "Pembayaran",
+                accountSize: "Ukuran Akun",
+                country: "Negara",
+                time: "Waktu",
+                txHash: "Hash Transaksi",
+                certificate: "Sertifikat",
+            },
+        },
+    },
+    pt: {
+        hero: {
+            title: "Pagamento",
+            desc: "Nós <strong>processamos pagamentos rapidamente</strong>, nos conectamos com traders em <strong>eventos offline</strong> e construímos uma <strong>comunidade de apoio</strong>. Esses são elementos essenciais do nosso negócio.",
+            btnInterviews: "Entrevistas com Traders",
+            btnDailyPayout: "Pagamento diário",
+        },
+        meet: {
+            titleHtml: '<p class="title__sub">Traders WMT</p><h3>Conheça <span>Traders WMT de Sucesso</span></h3><p class="txt">Descubra as estratégias e insights ocultos que impulsionaram o sucesso de nossos traders<br>em sua notável jornada de trading com a WeMasterTrade.</p>',
+            loadMore: "Carregar mais",
+        },
+        daily: {
+            titleSub: "Pagamento diário",
+            titleMain: "WeMasterTrade<br><span>Pagamento diário</span>",
+            blockchainDesc: "Descubra como o blockchain garante a integridade dos pagamentos e como você pode verificar cada saque de forma independente com total confiança.",
+            totalPayouts: "Pagamentos totais",
+            tabAll: "Todos",
+            tab7d: "Últimos 7 dias",
+            tab30d: "Últimos 30 dias",
+            tab12m: "Últimos 365 dias",
+            tableTitle: "Maior pagamento diário",
+            searchPlaceholder: "Pesquisar...",
+            entriesDescription: "Mostrando de {start} a {end} de {total} registros",
+            chartColumns: {
+                region: "Região",
+                amount: "Valor",
+                share: "Participação",
+                count: "Quantidade",
+            },
+            columns: {
+                no: "N°",
+                name: "Nome",
+                payout: "Pagamento",
+                accountSize: "Tamanho da conta",
+                country: "País",
+                time: "Data/Hora",
+                txHash: "Hash da transação",
+                certificate: "Certificação",
+            },
+        },
+    },
+    km: {
+        hero: {
+            title: "ការទូទាត់",
+            desc: "យើង<strong>ដំណើរការការទូទាត់យ៉ាងរហ័ស</strong> ភ្ជាប់ជាមួយអ្នកជួញដូរតាមរយៈ<strong>ព្រឹត្តិការណ៍ក្រៅអនឡាញ</strong> និងកសាង<strong>សហគមន៍ដែលគាំទ្រគ្នា</strong> ដែលទាំងអស់នេះជាផ្នែកសំខាន់នៃអាជីវកម្មរបស់យើង។",
+            btnInterviews: "សម្ភាសន៍អ្នកជួញដូរ",
+            btnDailyPayout: "ការទូទាត់ប្រចាំថ្ងៃ",
+        },
+        meet: {
+            titleHtml: '<p class="title__sub">ពាណិជ្ជករ WMT</p><h3>ជួបជាមួយ <span>ពាណិជ្ជករ WMT ដែលជោគជ័យ</span></h3><p class="txt">ស្វែងរកយុទ្ធសាស្ត្រ និងការយល់ដឹងសម្ងាត់ដែលបានជំរុញភាពជោគជ័យរបស់ពាណិជ្ជកររបស់យើង<br>ក្នុងដំណើរជួញដូរដ៏អស្ចារ្យជាមួយ WeMasterTrade។</p>',
+            loadMore: "មើលបន្ថែម",
+        },
+        daily: {
+            titleSub: "ការទូទាត់ប្រចាំថ្ងៃ",
+            titleMain: "WeMasterTrade<br><span>ការទូទាត់ប្រចាំថ្ងៃ</span>",
+            blockchainDesc: "ស្វែងយល់ពីរបៀបដែលប្លុកឆេនធានาភាពត្រឹមត្រូវនៃការទូទាត់ និងរបៀបដែលអ្នកអាចផ្ទៀងផ្ទាត់ការដកប្រាក់រាល់លើកដោយខ្លួនឯงដោយមានទំនុកចិត្ត។",
+            totalPayouts: "ការទូទាត់សរុប",
+            tabAll: "ทั้งหมด",
+            tab7d: "7 ថ្ងៃចុងក្រោយ",
+            tab30d: "30 ថ្ងៃចុងក្រោយ",
+            tab12m: "365 ថ្ងៃចុងក្រោយ",
+            tableTitle: "ការទូទាត់ប្រចាំថ្ងៃខ្ពស់បំផុត",
+            searchPlaceholder: "ស្វែងរក...",
+            entriesDescription: "បង្ហាញពី {start} ដល់ {end} ក្នុងចំណោម {total} ធាតុ",
+            chartColumns: {
+                region: "តំបន់",
+                amount: "จำนวนเงิน",
+                share: "ភាគរយ",
+                count: "ចំនួន",
+            },
+            columns: {
+                no: "ល.រ",
+                name: "ឈ្មោះ",
+                payout: "ការទូទាត់",
+                accountSize: "ទំហំគណនី",
+                country: "ប្រទេស",
+                time: "ម៉ោង",
+                txHash: "Hash ប្រតិបត្តិការ",
+                certificate: "វិញ្ញាបនបត្រ",
+            },
+        },
+    },
+    bn: {
+        hero: {
+            title: "পেআউট",
+            desc: "আমরা <strong>দ্রুত পেমেন্ট প্রক্রিয়া করি</strong>, <strong>অফলাইন ইভেন্টে</strong> ট্রেডারদের সাথে যুক্ত হই এবং একটি <strong>সহায়ক কমিউনিটি</strong> তৈরি করি। এগুলো আমাদের ব্যবসার গুরুত্বপূর্ণ অংশ।",
+            btnInterviews: "ট্রেডার সাক্ষাৎকার",
+            btnDailyPayout: "দৈনিক পেআউট",
+        },
+        meet: {
+            titleHtml: '<p class="title__sub">WMT ট্রেডার</p><h3>পরিচিত হোন <span>সফল WMT ট্রেডারদের সাথে</span></h3><p class="txt">আমাদের ট্রেডারদের সাফল্যের পেছনের গোপন কৌশল ও অন্তর্দৃষ্টি আবিষ্কার করুন<br>তাদের WeMasterTrade এর অসাধারণ ট্রেডিং যাত্রায়।</p>',
+            loadMore: "আরো লোড করুন",
+        },
+        daily: {
+            titleSub: "দৈনিক পেআউট",
+            titleMain: "WeMasterTrade<br><span>দৈনিক পেআউট</span>",
+            blockchainDesc: "জানুন কীভাবে ব্লকচেইন পেআউটের অখণ্ডতা নিশ্চিত করে এবং কীভাবে আপনি আত্মবিশ্বাসের সাথে প্রতিটি উত্তোলন স্বাধীনভাবে যাচাই করতে পারেন।",
+            totalPayouts: "মোট পেআউট",
+            tabAll: "সব",
+            tab7d: "গত ৭ দিন",
+            tab30d: "গত ৩০ দিন",
+            tab12m: "গত ৩৬৫ দিন",
+            tableTitle: "টপ দৈনিক পেআউট",
+            searchPlaceholder: "অনুসন্ধান...",
+            entriesDescription: "{total} এন্ট্রির মধ্যে {start} থেকে {end} দেখানো হচ্ছে",
+            chartColumns: {
+                region: "অঞ্চল",
+                amount: "পরিমাণ",
+                share: "শেয়ার",
+                count: "সংখ্যা",
+            },
+            columns: {
+                no: "নং",
+                name: "নাম",
+                payout: "পেআউট",
+                accountSize: "অ্যাকাউন্টের আকার",
+                country: "দেশ",
+                time: "সময়",
+                txHash: "লেনদেন হ্যাশ",
+                certificate: "সার্টিফিকেট",
+            },
+        },
+    },
+    ir: {
+        hero: {
+            title: "پرداخت",
+            desc: "ما <strong>پرداخت‌ها را سریع انجام می‌دهیم</strong>، از طریق <strong>رویدادهای حضوری</strong> با معامله‌گران ارتباط برقرار می‌کنیم و یک <strong>جامعه حمایتی</strong> می‌سازیم. این‌ها بخش‌های کلیدی کسب‌وکار ما هستند.",
+            btnInterviews: "مصاحبه با معامله‌گران",
+            btnDailyPayout: "پرداخت روزانه",
+        },
+        meet: {
+            titleHtml: '<p class="title__sub">تریدرهای WMT</p><h3>آشنا شوید با <span>تریدرهای موفق WMT</span></h3><p class="txt">استراتژی‌ها و بینش‌های پنهانی که موفقیت تریدرهای ما را رقم زده‌اند کشف کنید<br>در مسیر معاملاتی چشمگیر آن‌ها با WeMasterTrade.</p>',
+            loadMore: "بارگذاری بیشتر",
+        },
+        daily: {
+            titleSub: "پرداخت روزانه",
+            titleMain: "WeMasterTrade<br><span>پرداخت روزانه</span>",
+            blockchainDesc: "کشف کنید چگونه بلاکچین یکپارچگی پرداخت‌ها را تضمین می‌کند و چگونه می‌توانید هر برداشت را به‌صورت مستقل و با اطمینان تأیید کنید.",
+            totalPayouts: "مجموع پرداخت‌ها",
+            tabAll: "همه",
+            tab7d: "7 روز گذشته",
+            tab30d: "30 روز گذشته",
+            tab12m: "365 روز گذشته",
+            tableTitle: "بالاترین پرداخت روزانه",
+            searchPlaceholder: "جستجو...",
+            entriesDescription: "نمایش {start} تا {end} از مجموع {total} مورد",
+            chartColumns: {
+                region: "منطقه",
+                amount: "مقدار",
+                share: "سهم",
+                count: "تعداد",
+            },
+            columns: {
+                no: "شماره",
+                name: "نام",
+                payout: "پرداخت",
+                accountSize: "اندازه حساب",
+                country: "کشور",
+                time: "زمان",
+                txHash: "هش تراکنش",
+                certificate: "گواهینامه",
+            },
+        },
+    },
+    ur: {
+        hero: {
+            title: "ادائیگی",
+            desc: "ہم <strong>ادائگیاں تیزی سے پراسیس کرتے ہیں</strong>، <strong>آف لائن ایونٹس</strong> میں ٹریڈرز سے جڑتے ہیں اور ایک <strong>سپورٹو کمیونٹی</strong> بناتے ہیں۔ یہ سب ہمارے کاروبار کے اہم حصے ہیں۔",
+            btnInterviews: "ٹریڈر انٹرویوز",
+            btnDailyPayout: "روزانہ ادائیگی",
+        },
+        meet: {
+            titleHtml: '<p class="title__sub">WMT ٹریڈرز</p><h3><span>کامیاب WMT ٹریڈرز</span> سے ملیں</h3><p class="txt">ان خفیہ حکمتِ عملیوں اور بصیرتوں کو دریافت کریں جنہوں نے ہمارے ٹریڈرز کی WeMasterTrade کے ساتھ شاندار ٹریڈنگ سفر میں کامیابی کو ممکن بنایا۔</p>',
+            loadMore: "مزید لوڈ کریں",
+        },
+        daily: {
+            titleSub: "روزانہ ادائیگی",
+            titleMain: "WeMasterTrade<br><span>روزانہ ادائیگی</span>",
+            blockchainDesc: "جانیے کہ بلاک چین کس طرح ادائیگی کی سالمیت کو یقینی بناتا ہے اور آپ ہر رقم نکالنے کی آزادانہ طور پر تصدیق کیسے کر سکتے ہیں۔",
+            totalPayouts: "کل ادائیگیاں",
+            tabAll: "تمام",
+            tab7d: "گزشتہ 7 دن",
+            tab30d: "گزشتہ 30 دن",
+            tab12m: "گزشتہ 365 دن",
+            tableTitle: "ٹاپ ڈیلی ادائیگی",
+            searchPlaceholder: "تلاش کریں...",
+            entriesDescription: "{start} سے {end} تک {total} اندراجات دکھائے جا رہے ہیں",
+            chartColumns: {
+                region: "علاقہ",
+                amount: "رقم",
+                share: "حصہ",
+                count: "تعداد",
+            },
+            columns: {
+                no: "نمبر",
+                name: "نام",
+                payout: "ادائیگی",
+                accountSize: "اکاؤنٹ کا سائز",
+                country: "ملک",
+                time: "وقت",
+                txHash: "ٹرانزیکشن ہیش",
+                certificate: "سرٹیفکیٹ",
+            },
+        },
+    },
+};
+export type { Locale };
+export default payoutTranslations;

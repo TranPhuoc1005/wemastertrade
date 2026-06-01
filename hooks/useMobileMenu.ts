@@ -2,16 +2,10 @@
 
 import { useState, useCallback, useEffect } from "react";
 
-/**
- * Mobile menu state: hamburger toggle + dropdown submenus.
- * Also manages body classes (open-nav, no-scroll) and responsive cleanup.
- * Migrated from: common.js L51-79
- */
 export function useMobileMenu() {
     const [menuOpen, setMenuOpen] = useState(false);
     const [openDropdowns, setOpenDropdowns] = useState<Set<number>>(new Set());
 
-    // Sync body classes with menu state
     useEffect(() => {
         const html = document.documentElement;
         if (menuOpen) {
@@ -25,7 +19,6 @@ export function useMobileMenu() {
         };
     }, [menuOpen]);
 
-    // Reset dropdowns on desktop resize
     useEffect(() => {
         function handleResize() {
             if (window.innerWidth >= 993) {
@@ -38,13 +31,11 @@ export function useMobileMenu() {
         return () => window.removeEventListener("resize", handleResize);
     }, []);
 
-    // Close dropdowns when clicking outside
     useEffect(() => {
         if (openDropdowns.size === 0) return;
 
         function handleClickOutside(e: MouseEvent) {
             const target = e.target as Element;
-            // If click is inside a .dropdown, don't close
             if (target.closest(".dropdown")) return;
             setOpenDropdowns(new Set());
         }
@@ -58,7 +49,6 @@ export function useMobileMenu() {
     }, []);
 
     const toggleDropdown = useCallback((index: number) => {
-        // Only toggle on mobile
         if (window.innerWidth > 992) return;
 
         setOpenDropdowns((prev) => {

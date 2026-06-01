@@ -2,6 +2,7 @@ import { defaultLocale, type Locale } from "./config";
 import en from "./dictionaries/en";
 import { instantFundingTranslations } from "./instantFundingTranslations";
 import { packageTranslations } from "./packageTranslations";
+import { payoutTranslations } from "./payoutTranslations";
 import type { Dictionary, PartialDictionary } from "./types";
 
 const dictionaries: Partial<Record<Locale, () => Promise<PartialDictionary>>> = {
@@ -75,6 +76,38 @@ export async function getDictionary(locale: Locale): Promise<Dictionary> {
                 ...instantFundingTranslations[dictionaryLocale],
                 ...instantFundingTranslations[locale],
                 ...partial.instant?.funding,
+            },
+        },
+        payout: {
+            hero: {
+                ...payoutTranslations.en.hero,
+                ...payoutTranslations[dictionaryLocale]?.hero,
+                ...payoutTranslations[locale]?.hero,
+                ...partial.payout?.hero,
+            },
+            meet: {
+                ...payoutTranslations.en.meet,
+                ...payoutTranslations[dictionaryLocale]?.meet,
+                ...payoutTranslations[locale]?.meet,
+                ...partial.payout?.meet,
+            },
+            daily: {
+                ...payoutTranslations.en.daily,
+                ...payoutTranslations[dictionaryLocale]?.daily,
+                ...payoutTranslations[locale]?.daily,
+                ...partial.payout?.daily,
+                chartColumns: {
+                    ...payoutTranslations.en.daily.chartColumns,
+                    ...payoutTranslations[dictionaryLocale]?.daily?.chartColumns,
+                    ...payoutTranslations[locale]?.daily?.chartColumns,
+                    ...partial.payout?.daily?.chartColumns,
+                },
+                columns: {
+                    ...payoutTranslations.en.daily.columns,
+                    ...payoutTranslations[dictionaryLocale]?.daily?.columns,
+                    ...payoutTranslations[locale]?.daily?.columns,
+                    ...partial.payout?.daily?.columns,
+                },
             },
         },
     };

@@ -2,10 +2,6 @@
 
 import { useEffect } from "react";
 
-/**
- * Adds "fix" class to <header> when page is scrolled >= 10px.
- * Migrated from: jQuery(window).on("load scroll", ...) in common.js L186-193
- */
 export function useHeaderScroll() {
     useEffect(() => {
         function handleScroll() {
