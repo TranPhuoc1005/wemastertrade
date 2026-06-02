@@ -4716,6 +4716,7 @@ html:not([dir="rtl"]) .payouts__content .desc .info p:not(:last-child) {
     border-radius: 40px;
     padding: 10px 24px;
     cursor: pointer;
+    display: block;
 }
 .blog__category a.active {
     background-color: var(--main-cl);
