@@ -25,7 +25,7 @@ const dictionaries: Partial<Record<Locale, () => Promise<PartialDictionary>>> = 
     zh: () => import("./dictionaries/zh").then((module) => module.default),
 };
 
-const dictionaryAliases: Partial<Record<Locale, Locale>> = {
+export const dictionaryAliases: Partial<Record<Locale, Locale>> = {
     afr: "en",
     au: "en",
     co: "es",
