@@ -59,6 +59,7 @@ const categoryConfigByLocale: Partial<Record<Locale, BlogCategory[]>> = {
     ph: [{ label: "Blog", id: 573 }],
     sg: [{ label: "Blog", id: 675 }],
     th: [{ label: "Blog", id: 523 }],
+    zh: [{ label: "Blog", id: 791 }],
 };
 
 const readMoreTextByLocale: Partial<Record<Locale, string>> = {
