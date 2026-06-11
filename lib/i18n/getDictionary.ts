@@ -44,9 +44,27 @@ export async function getDictionary(locale: Locale): Promise<Dictionary> {
     const loadDictionary = dictionaries[dictionaryLocale] ?? dictionaries[defaultLocale];
     const partial = await loadDictionary!();
 
+    let extractedEn: Record<string, string> = {};
+    try {
+        extractedEn = await import(`./extracted/en.json`).then((m) => m.default);
+    } catch (e) {}
+
+    let extractedLocale: Record<string, string> = {};
+    try {
+        extractedLocale = await import(`./extracted/${locale}.json`).then((m) => m.default);
+    } catch (e) {
+        try {
+            extractedLocale = await import(`./extracted/${dictionaryLocale}.json`).then((m) => m.default);
+        } catch (e2) {}
+    }
+
     return {
         ...en,
         ...partial,
+        extracted: {
+            ...extractedEn,
+            ...extractedLocale,
+        },
         common: {
             ...en.common,
             ...partial.common,
@@ -76,6 +94,24 @@ export async function getDictionary(locale: Locale): Promise<Dictionary> {
                 ...instantFundingTranslations[dictionaryLocale],
                 ...instantFundingTranslations[locale],
                 ...partial.instant?.funding,
+                package: extractedLocale.instant_funding_package || extractedEn.instant_funding_package || en.instant.funding.package,
+                titlePrefix: extractedLocale.instant_funding_titlePrefix || extractedEn.instant_funding_titlePrefix || en.instant.funding.titlePrefix,
+                titleSuffix: extractedLocale.instant_funding_titleSuffix || extractedEn.instant_funding_titleSuffix || en.instant.funding.titleSuffix,
+                capitalPackage: extractedLocale.instant_funding_capitalPackage || extractedEn.instant_funding_capitalPackage || en.instant.funding.capitalPackage,
+                comparison: extractedLocale.instant_funding_comparison || extractedEn.instant_funding_comparison || en.instant.funding.comparison,
+                accountSize: extractedLocale.instant_funding_accountSize || extractedEn.instant_funding_accountSize || en.instant.funding.accountSize,
+                tryNow: extractedLocale.instant_funding_tryNow || extractedEn.instant_funding_tryNow || en.instant.funding.tryNow,
+                scaleUp: extractedLocale.instant_funding_scaleUp || extractedEn.instant_funding_scaleUp || en.instant.funding.scaleUp,
+                faq: extractedLocale.instant_funding_faq || extractedEn.instant_funding_faq || en.instant.funding.faq,
+                freeTrial: extractedLocale.instant_funding_freeTrial || extractedEn.instant_funding_freeTrial || en.instant.funding.freeTrial,
+                weFundYou: extractedLocale.instant_funding_weFundYou || extractedEn.instant_funding_weFundYou || en.instant.funding.weFundYou,
+                oneTimeFee: extractedLocale.instant_funding_oneTimeFee || extractedEn.instant_funding_oneTimeFee || en.instant.funding.oneTimeFee,
+                profitTargetToWithdraw: extractedLocale.instant_funding_profitTargetToWithdraw || extractedEn.instant_funding_profitTargetToWithdraw || en.instant.funding.profitTargetToWithdraw,
+                dailyLoss: extractedLocale.instant_funding_dailyLoss || extractedEn.instant_funding_dailyLoss || en.instant.funding.dailyLoss,
+                maxLoss: extractedLocale.instant_funding_maxLoss || extractedEn.instant_funding_maxLoss || en.instant.funding.maxLoss,
+                freeSwap: extractedLocale.instant_funding_freeSwap || extractedEn.instant_funding_freeSwap || en.instant.funding.freeSwap,
+                swapFee: extractedLocale.instant_funding_swapFee || extractedEn.instant_funding_swapFee || en.instant.funding.swapFee,
+                buyingPower: extractedLocale.instant_funding_buyingPower || extractedEn.instant_funding_buyingPower || en.instant.funding.buyingPower,
             },
         },
         payout: {

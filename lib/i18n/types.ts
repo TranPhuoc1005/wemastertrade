@@ -127,6 +127,7 @@ export interface Dictionary {
             };
         };
     };
+    extracted?: Record<string, string>;
 }
 
 type DeepPartial<T> = {

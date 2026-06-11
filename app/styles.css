@@ -1752,11 +1752,11 @@ select {
     pointer-events: none;
 }
 .wchoose__content .item__no {
-    font-size: 120px;
+    font-size: 100px;
     color: hsla(0, 0%, 100%, 1);
     font-weight: 500;
     width: 100%;
-    max-width: 233px;
+    max-width: 340px;
     margin-bottom: 0;
     line-height: 1;
 }

@@ -27,17 +27,17 @@ export default async function InstantPage({
 
     return (
         <main id="main">
-            <Hero dict={dict.home.hero} lang={lang} />
+            <Hero dict={dict.extracted} lang={lang} />
             <div id="content">
-                <Certificates lang={lang} />
-                <Benefit lang={lang} />
+                <Certificates dict={dict.extracted} lang={lang} />
+                <Benefit dict={dict.extracted} lang={lang} />
                 <InstantFunding dict={dict.instant.funding} lang={lang} />
-                <WhyUs lang={lang} />
-                <HowItWork lang={lang} />
-                <Unique />
-                <Traders lang={lang} />
-                <Subscribe lang={lang} />
-                <Payout lang={lang} />
+                <WhyUs dict={dict.extracted} lang={lang} />
+                <HowItWork dict={dict.extracted} lang={lang} isInstant={true} />
+                <Unique dict={dict.extracted} />
+                <Traders dict={dict.extracted} lang={lang} />
+                <Subscribe dict={dict.extracted} lang={lang} />
+                <Payout dict={dict.extracted} lang={lang} />
             </div>
         </main>
     );

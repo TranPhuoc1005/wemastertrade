@@ -8,7 +8,12 @@ import { getSafeLocale, localizedPath } from "../../../lib/i18n/routing";
 import { LangProps } from "../../../types/common";
 import { useDailyPayout } from "../../../hooks/useDailyPayout";
 
-export default function Payout({ lang }: LangProps) {
+interface PayoutProps extends LangProps {
+    dict?: Record<string, string>;
+}
+
+export default function Payout({ lang, dict }: PayoutProps) {
+    const t = dict || {};
     const {
         error,
         expanded,
@@ -37,52 +42,68 @@ export default function Payout({ lang }: LangProps) {
             <div className="container">
                 <div className="payouts__content">
                     <div className="title">
-                        <p className="title__sub">Payouts</p>
-                        <h3>Fast & Reliable <br /><span>Payouts</span></h3>
+                        <p className="title__sub">{t.payouts_block_0 || "Payouts"}</p>
+                        {t.payouts_block_1 ? (
+                            <div dangerouslySetInnerHTML={{ __html: t.payouts_block_1 }} />
+                        ) : (
+                            <h3>Fast & Reliable <br /><span>Payouts</span></h3>
+                        )}
                     </div>
                     <div className="desc">
-                        <p className="txt">Enjoy hassle-free payouts as a reward for your simulated trading. Because you shouldn’t wait for your money</p>
-                        <div className="info">
-                            <p><span>24h</span>Avg Payout Time</p>
-                            <p><span>1d</span>Daily Payout</p>
-                            <p><span>24/5</span>Customer Support</p>
-                        </div>
+                        <p className="txt">{t.payouts_block_2 || "Enjoy hassle-free payouts as a reward for your simulated trading. Because you shouldn’t wait for your money"}</p>
+                        {t.payouts_block_3 ? (
+                            <div className="info" dangerouslySetInnerHTML={{ __html: t.payouts_block_3 }} />
+                        ) : (
+                            <div className="info">
+                                <p><span>24h</span>Avg Payout Time</p>
+                                <p><span>1d</span>Daily Payout</p>
+                                <p><span>24/5</span>Customer Support</p>
+                            </div>
+                        )}
                     </div>
                 </div>
                 <div className="payouts__card">
                     <div className="item">
                         <div className="cnt">
-                            <h3 className="h4">Bank Transfer</h3>
+                            <h3 className="h4">{t.payouts_block_4 || "Bank Transfer"}</h3>
                             <div className="desc">
-                                <p>Money in the bank within <br />hours of your request</p>
+                                {t.payouts_block_5 ? (
+                                    <div dangerouslySetInnerHTML={{ __html: t.payouts_block_5 }} />
+                                ) : (
+                                    <p>Money in the bank within <br />hours of your request</p>
+                                )}
                             </div>
                         </div>
-                        <p className="ic"><Image loading="lazy" src="/images/payouts_ic1.png" width={97} height={95} alt="Bank Transfer" />
+                        <p className="ic"><Image loading="lazy" src="/images/payouts_ic1.png" width={97} height={95} alt={t.payouts_block_4 || "Bank Transfer"} />
                         </p>
                     </div>
                     <div className="item">
                         <div className="cnt">
-                            <h3 className="h4">Payouts</h3>
+                            <h3 className="h4">{t.payouts_block_6 || "Payouts"}</h3>
                             <div className="desc">
-                                <p>We support payouts via USDC and other stablecoins</p>
+                                <p>{t.payouts_block_7 || "We support payouts via USDC and other stablecoins"}</p>
                             </div>
                         </div>
-                        <p className="ic"><Image loading="lazy" src="/images/payouts_ic2.png" width={102} height={92} alt="Payouts" />
+                        <p className="ic"><Image loading="lazy" src="/images/payouts_ic2.png" width={102} height={92} alt={t.payouts_block_6 || "Payouts"} />
                         </p>
                     </div>
                     <div className="item">
                         <div className="cnt">
-                            <h3 className="h4">Debit/Credit/Prepaid<br className="pc" />Cards</h3>
+                            {t.payouts_block_8 ? (
+                                <h3 className="h4" dangerouslySetInnerHTML={{ __html: t.payouts_block_8 }} />
+                            ) : (
+                                <h3 className="h4">Debit/Credit/Prepaid<br className="pc" />Cards</h3>
+                            )}
                             <div className="desc">
-                                <p>Use your performance-based rewards directly with our branded Visa/MasterCard/American Express/JCB...</p>
+                                <p>{t.payouts_block_9 || "Use your performance-based rewards directly with our branded Visa/MasterCard/American Express/JCB..."}</p>
                             </div>
                         </div>
-                        <p className="ic"><Image loading="lazy" src="/images/payouts_ic3.png" width={108} height={114} alt="Debit/Credit/Prepaid Cards" />
+                        <p className="ic"><Image loading="lazy" src="/images/payouts_ic3.png" width={108} height={114} alt={t.payouts_block_8 ? t.payouts_block_8.replace(/<[^>]*>/g, '') : "Debit/Credit/Prepaid Cards"} />
                         </p>
                     </div>
                 </div>
                 <div id="daily-payout-section" className="payouts__list" ref={sectionRef}>
-                    <h4>Payouts</h4>
+                    <h4>{t.payouts_block_11 || "Payouts"}</h4>
                     <div className={`payouts__frame${expanded ? " expanded" : ""}`}>
                         <ul id="daily-payout-list" className="payouts-list">
                             {items.map((item, index) => (
@@ -137,7 +158,7 @@ export default function Payout({ lang }: LangProps) {
                                 }}
                                 role="button"
                                 tabIndex={0}>
-                                <span>Load More</span>
+                                <span>{t.payouts_block_12 || "Load More"}</span>
                             </p>
                         ) : null}
 

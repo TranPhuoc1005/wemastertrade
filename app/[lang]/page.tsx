@@ -28,17 +28,17 @@ export default async function HomePage({
 
     return (
         <main id="main">
-            <Hero dict={dict.home.hero} lang={lang} />
+            <Hero dict={dict.extracted} lang={lang} />
             <div id="content">
-                <Certificates lang={lang} />
-                <WhyUs lang={lang} />
-                <HowItWork lang={lang} />
+                <Certificates dict={dict.extracted} lang={lang} />
+                <WhyUs dict={dict.extracted} lang={lang} />
+                <HowItWork dict={dict.extracted} lang={lang} />
                 <ChallengePackage dict={dict.home.package} lang={lang} />
-                <WhyChoose lang={lang} />
-                <Features lang={lang} />
-                <Traders lang={lang} />
-                <Subscribe lang={lang} />
-                <Payout lang={lang} />
+                <WhyChoose dict={dict.extracted} lang={lang} />
+                <Features dict={dict.extracted} lang={lang} />
+                <Traders dict={dict.extracted} lang={lang} />
+                <Subscribe dict={dict.extracted} lang={lang} />
+                <Payout dict={dict.extracted} lang={lang} />
             </div>
         </main>
     );

@@ -2,14 +2,29 @@ import React from 'react';
 import Image from 'next/image';
 import type { Locale } from "../../../lib/i18n/config";
 import { localizedPath } from "../../../lib/i18n/routing";
-import type { Dictionary } from "../../../lib/i18n/types";
 
 interface Props {
-  dict: Dictionary["home"]["hero"];
+  dict?: Record<string, string>;
   lang: Locale;
 }
 
 export default function Hero({ dict, lang }: Props) {
+  // Title HTML fallback
+  const titleHtml = dict?.hero_block_0 || `<h2><span>Trade Virtually</span><br><span>Earn Real Rewards</span></h2>`;
+  
+  // Point 1 fallback
+  const point1 = dict?.hero_block_1 || "We train and evaluate your trading skills.";
+  
+  // Point 2 HTML fallback (contains the <i hover-tooltip="...">capital</i>)
+  const point2Html = dict?.hero_block_2 || `You gain access to our virtual <i hover-tooltip="Clients are provided a simulated trading account with virtual funds. Based on demonstrated trading performance, WeMasterTrade may, at its sole discretion, utilize selected trading strategies in its proprietary live trading operations, where the Company generates its own revenue." tooltip-position="bottom">capital</i> for trading.`;
+  
+  // Point 3 fallback
+  const point3 = dict?.hero_block_3 || "We copy your valuable trades and share the rewards.";
+  
+  // CTA fallbacks
+  const primaryCta = dict?.hero_block_4 || "Free To Use";
+  const promotionsCta = dict?.hero_block_5 || "Our Promotions";
+
   return (
     <div className="mainvisual instant__page mainvs__football">
         <div className="container">
@@ -19,15 +34,12 @@ export default function Hero({ dict, lang }: Props) {
                         src="/images/mainvs_element_football3-op.webp"
                         width={962}
                         height={951}
-                        alt={dict.imageAlt} />
+                        alt="Trade Virtually Earn real Rewards" />
                 </a>
             </div>
             <div className="mainvisual__content">
-                <h2>
-                    <span>{dict.titleLine1}</span>
-                    <br />
-                    <span>{dict.titleLine2}</span>
-                </h2>
+                <div dangerouslySetInnerHTML={{ __html: titleHtml }} />
+                
                 <div className="desc">
                     <p>
                         <Image
@@ -37,25 +49,17 @@ export default function Hero({ dict, lang }: Props) {
                             alt="" />
                     </p>
                     <ul className="mainvisual__list">
-                        <li>{dict.point1}</li>
-                        <li>
-                            {dict.point2Prefix}{" "}
-                            <i
-                                hover-tooltip={dict.point2Tooltip}
-                                tooltip-position="bottom">
-                                {dict.point2Term}
-                            </i>
-                            {" "}{dict.point2Suffix}
-                        </li>
-                        <li>{dict.point3}</li>
+                        <li>{point1}</li>
+                        <li dangerouslySetInnerHTML={{ __html: point2Html }} />
+                        <li>{point3}</li>
                     </ul>
                 </div>
                 <div className="btn">
                     <p>
-                        <a href="https://my.wemastertrade.com/" target="_blank"><span>{dict.primaryCta}</span></a>
+                        <a href="https://my.wemastertrade.com/" target="_blank"><span>{primaryCta}</span></a>
                     </p>
                     <p>
-                        <a href={localizedPath(lang, "/promotions/")} className="btn_w"><span>{dict.promotionsCta}</span></a>
+                        <a href={localizedPath(lang, "/promotions/")} className="btn_w"><span>{promotionsCta}</span></a>
                     </p>
                 </div>
                 <div className="btn btn-app">
@@ -65,7 +69,7 @@ export default function Hero({ dict, lang }: Props) {
                                 width={120}
                                 height={40}
                                 src="/images/WMTapp-head.png"
-                                alt={dict.appStoreAlt} />
+                                alt="App Store" />
                         </a>
                     </p>
                     <p>
@@ -74,7 +78,7 @@ export default function Hero({ dict, lang }: Props) {
                                 width={120}
                                 height={40}
                                 src="/images/WMTstore-head.png"
-                                alt={dict.googlePlayAlt} />
+                                alt="Google Play" />
                         </a>
                     </p>
                 </div>
