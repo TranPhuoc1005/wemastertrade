@@ -30,6 +30,7 @@ export const languages = [
     { code: "ir", slug: "ir", label: "Persian", flag: "/images/local_flag_persian.png", htmlLang: "fa" },
     { code: "ru", slug: "ru", label: "Russian", flag: "/images/local_flag_pynccknn.png", htmlLang: "ru" },
     { code: "ko", slug: "ko", label: "Korean", flag: "/images/local_flag_korea.png", htmlLang: "ko" },
+    { code: "uz", slug: "uz", label: "Uzbekistan", flag: "/images/local_flag_uzbekistan.png", htmlLang: "uz" },
 ] as const;
 
 export type Locale = (typeof languages)[number]["slug"];

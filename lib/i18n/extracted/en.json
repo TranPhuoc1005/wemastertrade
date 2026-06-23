@@ -139,7 +139,7 @@
     "instant_page_block_2": "WeMasterTrade is designed to support people who do not have big money to create a large day trading account, lack trading experience, and have limited trading tools and resources.",
     "instant_page_block_3": "Watch video",
     "instant_page_block_4": "Step 1",
-    "instant_page_block_5": "<h4>Fill the discovery form</h4><ul><li>Check the Instant package comparison to choose the option that best fits your trading goals: <a href=\"",
+    "instant_page_block_5": "<h4>Fill the discovery form</h4><ul><li>Check the Instant package comparison to choose the option that best fits your trading goals: <a href=\"/en/package-comparison/\" target=\"_blank\"><strong>Comparison</strong></a></li></ul>",
     "instant_page_block_6": "Step 2",
     "instant_page_block_7": "<h4>Select the packages</h4>\r\n                                                <ul>\r\n                                                    <li>Please select the most suitable\r\n                                                        <br class=\"pc\">conditions for you, including:\r\n                                                        <br>\r\n                                                        <ul class=\"ul__sub\" style=\"margin-left:0\">\r\n                                                            <li>Balance amount</li>\r\n                                                            <li>Buying power (Leverage)</li>\r\n                                                            <li>Daily loss/pause</li>\r\n                                                            <li>Maximum loss</li>\r\n                                                        </ul>\r\n                                                    </li>\r\n                                                    <li>Purchase it and sign the e-contract to activate the virtual trading account.</li>\r\n                                                </ul>",
     "instant_page_block_8": "Step 3",
@@ -172,5 +172,11 @@
     "instant_funding_titlePrefix": "Choose Your Trading",
     "instant_funding_titleSuffix": "Capital Package",
     "instant_funding_tryNow": "Try Now",
-    "instant_funding_weFundYou": "we fund you"
+    "instant_funding_weFundYou": "we fund you",
+    "instant_hero_block_0": "<h1 class=\"h2 h2-custom\"><span>Best Prop Trading <br />Firms of 2026</span></h1>\n<p><span>Trade Virtually</span> <span>Earn Real Rewards</span></p>",
+    "instant_hero_block_1": "We train and evaluate your trading skills.",
+    "instant_hero_block_2": "You gain access to our virtual <i hover-tooltip=\"Clients are provided a simulated trading account with virtual funds. Based on demonstrated trading performance, WeMasterTrade may, at its sole discretion, utilize selected trading strategies in its proprietary live trading operations, where the Company generates its own revenue.\" tooltip-position=\"bottom\">capital </i> for trading through funded trading.",
+    "instant_hero_block_3": "We copy your valuable trades through a prop firm trading and share the rewards.",
+    "instant_hero_block_4": "Free To Use",
+    "instant_hero_block_5": "Our Promotions"
 }

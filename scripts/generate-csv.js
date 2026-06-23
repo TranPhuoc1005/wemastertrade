@@ -7,7 +7,8 @@ const outputFile = path.join(__dirname, '../translations.csv');
 // List of locales in order we want to display in CSV
 const locales = [
     'en', 'vi', 'th', 'ja', 'es', 'id', 'km', 'ph', 'bn', 'zh', 'hk', 
-    'tr', 'fr', 'ru', 'ko', 'fa', 'pt', 'es-pe', 'es-mx', 'sg', 'in', 'au'
+    'tr', 'fr', 'ru', 'ko', 'fa', 'pt', 'es-pe', 'es-mx', 'sg', 'in', 'au',
+    'ur', 'uz', 'ar'
 ];
 
 function escapeCsvValue(val) {

@@ -740,6 +740,47 @@ export const payoutTranslations: Record<string, PayoutDictionary> = {
             },
         },
     },
+    ar: {
+        hero: {
+            title: "عمليات الدفع",
+            desc: "نقوم <strong>بمعالجة المدفوعات بسرعة</strong>، ونلتقي بالمتداولين في <strong>الفعاليات الميدانية</strong>، ونبني <strong>مجتمعاً داعماً</strong>. هذه ركائز أساسية لأعمالنا.",
+            btnInterviews: "مقابلات المتداولين",
+            btnDailyPayout: "المدفوعات اليومية",
+        },
+        meet: {
+            titleHtml: '<p class="title__sub">متداولو WMT</p><h3>التقِ بـ <span>متداولي WMT الناجحين</span></h3><p class="txt">اكتشف الاستراتيجيات والأسرار التي قادت متداولينا للنجاح<br>في رحلتهم الاستثنائية مع WeMasterTrade.</p>',
+            loadMore: "تحميل المزيد",
+        },
+        daily: {
+            titleSub: "المدفوعات اليومية",
+            titleMain: "WeMasterTrade<br><span>المدفوعات اليومية</span>",
+            blockchainDesc: "اكتشف كيف تضمن تقنية البلوكشين سلامة المدفوعات، وكيف يمكنك التحقق بشكل مستقل من كل عملية سحب بثقة.",
+            totalPayouts: "إجمالي المدفوعات",
+            tabAll: "الكل",
+            tab7d: "آخر 7 أيام",
+            tab30d: "آخر 30 يومًا",
+            tab12m: "آخر 365 يومًا",
+            tableTitle: "أعلى المدفوعات اليومية",
+            searchPlaceholder: "بحث...",
+            entriesDescription: "عرض {start} إلى {end} من أصل {total} إدخال",
+            chartColumns: {
+                region: "المنطقة",
+                amount: "المبلغ",
+                share: "الحصة",
+                count: "العدد",
+            },
+            columns: {
+                no: "الرقم",
+                name: "الاسم",
+                payout: "المدفوعات",
+                accountSize: "حجم الحساب",
+                country: "البلد",
+                time: "الوقت",
+                txHash: "معرف المعاملة",
+                certificate: "الشهادة",
+            },
+        },
+    },
     ur: {
         hero: {
             title: "ادائیگی",

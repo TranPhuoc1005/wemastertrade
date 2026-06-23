@@ -27,7 +27,7 @@ export default async function InstantPage({
 
     return (
         <main id="main">
-            <Hero dict={dict.extracted} lang={lang} />
+            <Hero dict={dict.extracted} lang={lang} isInstant={true} />
             <div id="content">
                 <Certificates dict={dict.extracted} lang={lang} />
                 <Benefit dict={dict.extracted} lang={lang} />

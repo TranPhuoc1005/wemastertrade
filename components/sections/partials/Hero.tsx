@@ -6,24 +6,27 @@ import { localizedPath } from "../../../lib/i18n/routing";
 interface Props {
   dict?: Record<string, string>;
   lang: Locale;
+  isInstant?: boolean;
 }
 
-export default function Hero({ dict, lang }: Props) {
+export default function Hero({ dict, lang, isInstant }: Props) {
+  const prefix = isInstant ? "instant_hero_block_" : "hero_block_";
+
   // Title HTML fallback
-  const titleHtml = dict?.hero_block_0 || `<h2><span>Trade Virtually</span><br><span>Earn Real Rewards</span></h2>`;
+  const titleHtml = dict?.[`${prefix}0`] || dict?.["head.php_block_0"] || `<h2><span>Trade Virtually</span><br><span>Earn Real Rewards</span></h2>`;
   
   // Point 1 fallback
-  const point1 = dict?.hero_block_1 || "We train and evaluate your trading skills.";
+  const point1 = dict?.[`${prefix}1`] || dict?.["head.php_block_1"] || "We train and evaluate your trading skills.";
   
   // Point 2 HTML fallback (contains the <i hover-tooltip="...">capital</i>)
-  const point2Html = dict?.hero_block_2 || `You gain access to our virtual <i hover-tooltip="Clients are provided a simulated trading account with virtual funds. Based on demonstrated trading performance, WeMasterTrade may, at its sole discretion, utilize selected trading strategies in its proprietary live trading operations, where the Company generates its own revenue." tooltip-position="bottom">capital</i> for trading.`;
+  const point2Html = dict?.[`${prefix}2`] || dict?.["head.php_block_2"] || `You gain access to our virtual <i hover-tooltip="Clients are provided a simulated trading account with virtual funds. Based on demonstrated trading performance, WeMasterTrade may, at its sole discretion, utilize selected trading strategies in its proprietary live trading operations, where the Company generates its own revenue." tooltip-position="bottom">capital</i> for trading.`;
   
   // Point 3 fallback
-  const point3 = dict?.hero_block_3 || "We copy your valuable trades and share the rewards.";
+  const point3 = dict?.[`${prefix}3`] || dict?.["head.php_block_3"] || "We copy your valuable trades and share the rewards.";
   
   // CTA fallbacks
-  const primaryCta = dict?.hero_block_4 || "Free To Use";
-  const promotionsCta = dict?.hero_block_5 || "Our Promotions";
+  const primaryCta = dict?.[`${prefix}4`] || dict?.["head.php_block_4"] || "Free To Use";
+  const promotionsCta = dict?.[`${prefix}5`] || dict?.["head.php_block_5"] || "Our Promotions";
 
   return (
     <div className="mainvisual instant__page mainvs__football">

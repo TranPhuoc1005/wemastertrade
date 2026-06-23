@@ -7,6 +7,7 @@ import type { Dictionary, PartialDictionary } from "./types";
 
 const dictionaries: Partial<Record<Locale, () => Promise<PartialDictionary>>> = {
     en: () => import("./dictionaries/en").then((module) => module.default),
+    ar: () => import("./dictionaries/ar").then((module) => module.default),
     bn: () => import("./dictionaries/bn").then((module) => module.default),
     es: () => import("./dictionaries/es").then((module) => module.default),
     fr: () => import("./dictionaries/fr").then((module) => module.default),
@@ -37,6 +38,7 @@ export const dictionaryAliases: Partial<Record<Locale, Locale>> = {
     in: "en",
     ph: "en",
     sg: "en",
+    uz: "en",
 };
 
 export async function getDictionary(locale: Locale): Promise<Dictionary> {
@@ -50,11 +52,13 @@ export async function getDictionary(locale: Locale): Promise<Dictionary> {
     } catch (e) {}
 
     let extractedLocale: Record<string, string> = {};
+    const targetLocale = locale === "ir" ? "fa" : locale;
+    const targetDictLocale = dictionaryLocale === "ir" ? "fa" : dictionaryLocale;
     try {
-        extractedLocale = await import(`./extracted/${locale}.json`).then((m) => m.default);
+        extractedLocale = await import(`./extracted/${targetLocale}.json`).then((m) => m.default);
     } catch (e) {
         try {
-            extractedLocale = await import(`./extracted/${dictionaryLocale}.json`).then((m) => m.default);
+            extractedLocale = await import(`./extracted/${targetDictLocale}.json`).then((m) => m.default);
         } catch (e2) {}
     }
 
